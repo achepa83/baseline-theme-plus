@@ -1,0 +1,44 @@
+/* Width of property names.
+   Fixed: Baseline's width, on phones from the setting (Baseline: 7.5em, which grows with the font
+   size and leaves a wide gap at 16px).
+   Fit: Obsidian builds every property as a row of its own with a fixed name width. Here the list
+   becomes a grid and each row takes its columns from it (subgrid), so all names share one column
+   as wide as the longest name, between a minimum and a maximum. The name fields size to their
+   text (field-sizing), which iOS does not support yet: there the fixed width stays. */
+
+body.theme-light.is-phone,
+body.theme-dark.is-phone {
+  --metadata-label-width: var(--bp-metadata-label-width-phone, 6em);
+}
+
+@supports (field-sizing: content) {
+  body.bp-metadata-fit-all .metadata-properties,
+  body.bp-metadata-fit-phone.is-phone .metadata-properties {
+    display: grid;
+    grid-template-columns: fit-content(var(--bp-metadata-label-max, 45%)) minmax(0, 1fr);
+    column-gap: var(--bp-metadata-gap, 8px);
+    row-gap: var(--metadata-gap);
+  }
+  body.bp-metadata-fit-all .metadata-properties > *,
+  body.bp-metadata-fit-phone.is-phone .metadata-properties > * {
+    grid-column: 1 / -1;
+  }
+  body.bp-metadata-fit-all .metadata-properties > .metadata-property,
+  body.bp-metadata-fit-phone.is-phone .metadata-properties > .metadata-property {
+    display: grid;
+    grid-template-columns: subgrid;
+  }
+  body.bp-metadata-fit-all .metadata-properties .metadata-property-key,
+  body.bp-metadata-fit-phone.is-phone .metadata-properties .metadata-property-key {
+    width: auto;
+    min-width: var(--bp-metadata-label-min, 3em);
+    max-width: 100%;
+    overflow: hidden;
+  }
+  body.bp-metadata-fit-all .metadata-properties input.metadata-property-key-input,
+  body.bp-metadata-fit-phone.is-phone .metadata-properties input.metadata-property-key-input {
+    field-sizing: content;
+    width: auto;
+    min-width: 0;
+  }
+}

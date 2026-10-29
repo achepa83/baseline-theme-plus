@@ -1,0 +1,64 @@
+/* Speed: the grays registered as colors. Unregistered, a variable is text, and every element that uses
+   --background-primary works out Baseline's formula (oklch, pow, and with True Adaptive color-mix)
+   again; registered, it is worked out once on <body> and passed on as a color. Measured in a window
+   of 6000 elements: a change of the light 450 → 270 ms. */
+@property --color-base-00 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+@property --color-base-05 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+@property --color-base-10 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+@property --color-base-20 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+@property --color-base-25 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+@property --color-base-30 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+@property --color-base-35 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+@property --color-base-40 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+@property --color-base-50 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+@property --color-base-60 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+@property --color-base-70 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+@property --color-base-100 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}

@@ -1,0 +1,7 @@
+/* Callouts on phones: Baseline sets the content off by the icon's width, and lists add Obsidian's
+   indent of 2.25em on top; at 16px little line width is left. Compact: text under the icon, and a
+   smaller list indent. */
+body.bp-callouts-compact-phone.is-phone .callout:not([data-callout=note-toolbar]) .callout-content {
+  margin-left: 0;
+  --list-indent: var(--bp-callout-list-indent, 1.4em);
+}

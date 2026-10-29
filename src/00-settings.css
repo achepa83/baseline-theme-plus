@@ -1,0 +1,241 @@
+/* @settings
+
+name: Baseline Plus
+id: baseline-plus
+collapsed: false
+settings:
+	-
+		id: bp-sidebar
+		title: Vault switcher
+		description: Bottom of the left sidebar, on desktop.
+		type: heading
+		level: 1
+		collapsed: true
+	-
+		id: bp-vault-switcher
+		title: Show the vault switcher
+		type: class-select
+		allowEmpty: false
+		default: bp-vault-switcher-hover
+		options:
+			-
+				label: When the pointer is on it
+				value: bp-vault-switcher-hover
+			-
+				label: Always
+				value: bp-vault-switcher-always
+			-
+				label: Like Baseline (with the icons next to it)
+				value: bp-vault-switcher-baseline
+	-
+		id: bp-vault-switcher-solid
+		title: Solid behind the vault name
+		description: When the pointer is on the vault name, it sits on a solid color, so file names behind it do not show through.
+		type: class-toggle
+		default: true
+	-
+		id: bp-vault-switcher-bg
+		title: Color behind the vault name
+		description: Default is a little lighter (dark mode) or darker (light mode) than the sidebar.
+		type: variable-themed-color
+		format: hex
+		default-light: '#'
+		default-dark: '#'
+	-
+		id: bp-vault-bg-style
+		title: Background of the bar
+		description: The whole bar with the vault name and its icons.
+		type: class-select
+		allowEmpty: false
+		default: bp-vault-bg-solid
+		options:
+			-
+				label: Solid
+				value: bp-vault-bg-solid
+			-
+				label: Translucent with blur
+				value: bp-vault-bg-blur
+			-
+				label: None (like Baseline)
+				value: bp-vault-bg-none
+	-
+		id: bp-vault-bg
+		title: Color of the bar
+		description: For solid and translucent. Default is the sidebar's own background.
+		type: variable-themed-color
+		format: hex
+		opacity: true
+		default-light: '#'
+		default-dark: '#'
+	-
+		id: bp-highlight
+		title: Highlight
+		type: heading
+		level: 1
+		collapsed: true
+	-
+		id: bp-hover-strength
+		title: Highlight strength
+		description: How visible the hovered and selected item is, e.g. in the command palette and in menus. Baseline uses 0.05. A color set under Baseline › Colors › Advanced › Hover fill takes precedence.
+		type: variable-number-slider
+		default: 0.1
+		min: 0
+		max: 0.4
+		step: 0.01
+	-
+		id: bp-callouts
+		title: Callouts on phones
+		type: heading
+		level: 1
+		collapsed: true
+	-
+		id: bp-callouts-compact-phone
+		title: Compact callouts on phones
+		description: The text starts under the icon instead of next to it, and lists in callouts indent less. Phones only.
+		type: class-toggle
+		default: true
+	-
+		id: bp-callout-list-indent
+		title: List indent in callouts
+		description: In em, phones only. Obsidian's default is 2.25.
+		type: variable-number-slider
+		default: 1.4
+		min: 0.8
+		max: 2.25
+		step: 0.05
+		format: em
+	-
+		id: bp-properties
+		title: Properties
+		type: heading
+		level: 1
+		collapsed: true
+	-
+		id: bp-metadata-width
+		title: Width of property names
+		description: Fit makes the names as wide as the longest one (all rows share one column), within the limits below. Fixed is Baseline's width. Fit needs Obsidian on desktop or Android; on iPhone and iPad names stay at the fixed width.
+		type: class-select
+		allowEmpty: false
+		default: bp-metadata-fit-phone
+		options:
+			-
+				label: Fit on phones, fixed elsewhere
+				value: bp-metadata-fit-phone
+			-
+				label: Fit everywhere
+				value: bp-metadata-fit-all
+			-
+				label: Fixed everywhere
+				value: bp-metadata-fixed
+	-
+		id: bp-metadata-label-min
+		title: Fit – minimum width
+		description: In em. Names are never narrower, even when all are short.
+		type: variable-number-slider
+		default: 3
+		min: 0
+		max: 10
+		step: 0.25
+		format: em
+	-
+		id: bp-metadata-label-max
+		title: Fit – maximum width
+		description: In percent of the row. Longer names are cut off with an ellipsis.
+		type: variable-number-slider
+		default: 45
+		min: 20
+		max: 70
+		step: 1
+		format: '%'
+	-
+		id: bp-metadata-gap
+		title: Fit – space between name and value
+		description: In pixels.
+		type: variable-number-slider
+		default: 8
+		min: 0
+		max: 32
+		step: 1
+		format: px
+	-
+		id: bp-metadata-label-width-phone
+		title: Fixed – width on phones
+		description: In em. Baseline uses 7.5; the desktop width is under Baseline › Editor › Properties.
+		type: variable-number-slider
+		default: 6
+		min: 4
+		max: 10
+		step: 0.25
+		format: em
+	-
+		id: bp-adaptive
+		title: True Adaptive – light from your surroundings
+		type: heading
+		level: 1
+		collapsed: true
+	-
+		id: bp-ta-info
+		title: How it works
+		description: The colors follow how bright it is around you and how warm the light is. The values come from the plugin Tweak Utils (section True Adaptive), from the light sensor of a Mac or from the sun at your place. Without it nothing changes. Works with the signatures Baseline, Material, Radiance and Softlight.
+		type: info-text
+	-
+		id: bp-ta
+		title: Follow the light around
+		type: class-toggle
+		default: true
+	-
+		id: bp-ta-dim
+		title: Light mode – dim in the dark
+		description: How much backgrounds dim in a dark room. 0 is off.
+		type: variable-number-slider
+		default: 0.1
+		min: 0
+		max: 0.3
+		step: 0.01
+	-
+		id: bp-ta-contrast
+		title: Light mode – stronger text in bright light
+		description: How much darker text gets in bright surroundings. 0 is off.
+		type: variable-number-slider
+		default: 0.25
+		min: 0
+		max: 0.6
+		step: 0.01
+	-
+		id: bp-ta-lift
+		title: Dark mode – lift in bright light
+		description: How much lighter backgrounds get in bright surroundings. 0 is off.
+		type: variable-number-slider
+		default: 0.05
+		min: 0
+		max: 0.15
+		step: 0.01
+	-
+		id: bp-ta-soften
+		title: Dark mode – softer text in the dark
+		description: How much text dims in a dark room. 0 is off.
+		type: variable-number-slider
+		default: 0.12
+		min: 0
+		max: 0.3
+		step: 0.01
+	-
+		id: bp-ta-brighten
+		title: Dark mode – brighter text in bright light
+		description: How much brighter text gets in bright surroundings (sun on the screen), without lifting backgrounds as Clarity does. Starts above average light. 0 is off.
+		type: variable-number-slider
+		default: 0.3
+		min: 0
+		max: 0.8
+		step: 0.01
+	-
+		id: bp-ta-warm
+		title: Warm light in the evening
+		description: How warm colors get in the evening and at night (backgrounds in light mode, text in dark mode). 0 is off.
+		type: variable-number-slider
+		default: 0.5
+		min: 0
+		max: 1
+		step: 0.05
+
+*/

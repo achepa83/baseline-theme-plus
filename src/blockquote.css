@@ -1,0 +1,5 @@
+/* Blockquote font style (Baseline's setting): Obsidian applies --blockquote-font-style only in reading
+   view; while writing (live preview, source) the quote lines get it here too. */
+.markdown-source-view .HyperMD-quote {
+  font-style: var(--blockquote-font-style);
+}

@@ -1,0 +1,7 @@
+/* Highlight of hovered and selected items (command palette, menus, lists).
+   Baseline fixes it at 5% with !important; this rule weighs more and takes the strength from the
+   setting. A Hover fill color set in Style Settings still wins (its rule weighs more again). */
+body.theme-light,
+body.theme-dark {
+  --background-modifier-hover: hsl(from var(--mono-100) h s l / var(--bp-hover-strength, 0.1)) !important;
+}

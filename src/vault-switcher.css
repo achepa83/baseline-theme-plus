@@ -1,0 +1,38 @@
+/* Vault switcher at the bottom of the left sidebar (desktop).
+   Baseline hides it until the whole footer is hovered, and since only the icons there take the
+   pointer, it showed only when the settings icon was hovered. Here it reacts to itself.
+   The doubled classes give these rules more weight than Baseline's, independent of their order. */
+
+body.bp-vault-switcher-hover:not(.is-mobile):not(.hide-vault-switcher-off) .mod-sidedock.mod-left-split .workspace-sidedock-vault-profile.workspace-sidedock-vault-profile .workspace-drawer-vault-switcher.workspace-drawer-vault-switcher {
+  pointer-events: visible;
+  opacity: 1;
+}
+body.bp-vault-switcher-hover:not(.is-mobile):not(.hide-vault-switcher-off) .mod-sidedock.mod-left-split .workspace-sidedock-vault-profile.workspace-sidedock-vault-profile .workspace-drawer-vault-switcher.workspace-drawer-vault-switcher:not(:hover):not(:focus-visible):not(.has-active-menu) {
+  opacity: 0;
+}
+
+body.bp-vault-switcher-always:not(.is-mobile):not(.hide-vault-switcher-off) .mod-sidedock.mod-left-split .workspace-sidedock-vault-profile.workspace-sidedock-vault-profile .workspace-drawer-vault-switcher.workspace-drawer-vault-switcher {
+  pointer-events: visible;
+  opacity: 1;
+}
+
+/* Background: the sidebar's own unless a color is chosen. */
+body {
+  --bp-vault-bg: var(--background-secondary);
+}
+body.bp-vault-bg-solid:not(.is-mobile) .mod-sidedock.mod-left-split .workspace-sidedock-vault-profile.workspace-sidedock-vault-profile {
+  background-color: var(--bp-vault-bg);
+}
+body.bp-vault-bg-blur:not(.is-mobile) .mod-sidedock.mod-left-split .workspace-sidedock-vault-profile.workspace-sidedock-vault-profile {
+  background-color: color-mix(in srgb, var(--bp-vault-bg) 70%, transparent);
+  backdrop-filter: blur(var(--blur-radius-m, 12px));
+}
+
+/* The vault name on a solid color when the pointer is on it (or its menu is open): the bar may be
+   translucent, the name itself must stay readable. Default: the sidebar, a step towards the text color. */
+body {
+  --bp-vault-switcher-bg: color-mix(in srgb, var(--background-secondary), var(--mono-100) 12%);
+}
+body.bp-vault-switcher-solid:not(.is-mobile) .mod-sidedock.mod-left-split .workspace-sidedock-vault-profile.workspace-sidedock-vault-profile .workspace-drawer-vault-switcher.workspace-drawer-vault-switcher:is(:hover, :focus-visible, .has-active-menu) {
+  background-color: var(--bp-vault-switcher-bg);
+}
